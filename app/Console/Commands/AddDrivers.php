@@ -47,13 +47,17 @@ class AddDrivers extends Command
         $drivers = json_decode($response->original)->drivers;
 
         foreach($drivers as $driver) {
-            Driver::create([
-                'first_name' => $driver->first_name,
-                'last_name' => $driver->last_name,
-                'birthday' => $driver->birthday ?? null,
-                'country' => $driver->country ?? null,
-                'team_name' => $driver->team->name ?? null,
-            ]);
+            if (Driver::where('external_id', $driver->id)) {
+                $this->info("Driver {$driver->full_name} doesn't exist, adding to DB.");
+                Driver::create([
+                    'first_name' => $driver->first_name,
+                    'last_name' => $driver->last_name,
+                    'birthday' => $driver->birthday ?? null,
+                    'country' => $driver->country ?? null,
+                    'team_name' => $driver->team->name ?? null,
+                    'external_id' => $driver->id,
+                ]);
+            }
         }
 
         return 0;
