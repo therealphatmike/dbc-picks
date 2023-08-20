@@ -15,6 +15,10 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'dbc-teal': '#6eb6bb',
+                'dbc-orange': '#fe5b4a',
+            },
         },
     },
 
