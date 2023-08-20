@@ -19,4 +19,10 @@ class Driver extends Model
         'suffix',
         'nickname',
     ];
+
+    public function getFullNameAttribute(): string
+    {
+        $firstPart = $this->nickname ?? $this->first_name;
+        return "{$firstPart} {$this->last_name}";
+    }
 }

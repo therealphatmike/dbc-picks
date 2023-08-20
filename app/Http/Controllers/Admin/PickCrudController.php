@@ -68,7 +68,17 @@ class PickCrudController extends CrudController
          */
         CRUD::field('race');
         CRUD::field('host');
-        CRUD::field('driver');
+        CRUD::field([
+            'label' => 'Driver',
+            'type' => 'select',
+            'name' => 'driver_id',
+            'entity' => 'driver',
+            'model' => 'App\Models\Driver',
+            'attribute' => 'fullName',
+            'options'   => (function ($query) {
+                return $query->orderBy('last_name', 'ASC')->get();
+            }),
+        ]);
         CRUD::field('place');
         CRUD::field('points');
         CRUD::field('regular_season');
