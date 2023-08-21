@@ -36,6 +36,9 @@ class WelcomeController extends Controller
             }
         }
 
-        return $hostsWithPicks;
+        return $hostsWithPicks->sortBy([
+                ['wins', 'desc'],
+                ['points', 'desc'],
+            ]);
     }
 }

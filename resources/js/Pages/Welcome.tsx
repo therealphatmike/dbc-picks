@@ -24,12 +24,7 @@ export default function Welcome({ auth, picks, hosts, standings }: PageProps<{ p
                     <CurrentPicks picks={picks.filter(pick => new Date(pick?.race?.date) >= new Date(getDate()))} />
                 </div>
                 <div id="standings">
-                    <Standings standings={standings.sort((a, b) => {
-                        if (a && a.wins && a.points && b && b.wins && b.points) {
-                            return a.points - b.points || a.wins - b.wins
-                        }
-                        return 0;
-                    })} />
+                    <Standings standings={standings} />
                 </div>
                 <div id="picks">
                     <PickTable picks={picks} />
