@@ -12,11 +12,14 @@ class WelcomeController extends Controller
     public function index()
     {
         Log::info("WelcomeController->index()");
+
         return Inertia::render('Welcome', [
             'standings' => $this->getStandings(),
-            'picks' => Pick::with(['driver', 'host', 'race' => function ($query) {
-                $query->orderBy('date', 'asc');
-            }])->limit(16)->get()->reverse()->flatten(),
+            'picks' => Pick::with(['driver', 'host', 'race'])
+                ->limit(16)
+                ->get()
+                ->sortByDesc('race.date')
+                ->flatten(),
             'hosts' => Host::all(),
         ]);
     }
