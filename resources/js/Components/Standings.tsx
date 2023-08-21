@@ -19,7 +19,7 @@ export default function Standings({ standings }: { standings: Host[] }) {
                             <span className="text-xl">{idx + 1}.</span>
                         </div>
                         <div className="flex-shrink-0">
-                            <img className="h-10 w-10 rounded-full" src={`storage/${host.avatar}`} alt="" />
+                            <img className="h-10 w-10 rounded-full" src={`build/images/${host.avatar}`} alt="" />
                         </div>
                         <div className="min-w-0 flex-1">
                             <a href="#" className="focus:outline-none">
