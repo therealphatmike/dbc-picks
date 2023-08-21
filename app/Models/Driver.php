@@ -18,6 +18,10 @@ class Driver extends Model
         'last_name',
         'suffix',
         'nickname',
+        'birthday',
+        'country',
+        'team_name',
+        'externaL_id',
     ];
 
     public function getFullNameAttribute(): string

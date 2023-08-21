@@ -15,5 +15,14 @@ class Track extends Model
 
     protected $fillable = [
         'name',
+        'external_id',
+        'distance',
+        'shape',
+        'banking',
+        'fronstretch',
+        'backstretch',
+        'surface',
+        'city',
+        'state',
     ];
 }

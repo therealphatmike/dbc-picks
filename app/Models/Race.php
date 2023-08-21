@@ -21,6 +21,7 @@ class Race extends Model
         'track_id',
         'date',
         'regular_season',
+        'external_id',
     ];
 
     public function track(): BelongsTo

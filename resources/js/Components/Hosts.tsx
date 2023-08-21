@@ -15,7 +15,7 @@ export default function Hosts({ hosts }: { hosts: Host[] }) {
                 >
                     {hosts.map((host) => (
                         <li key={host.id}>
-                            <img className="aspect-[3/2] w-full rounded-2xl object-cover" src={`storage/${host.avatar}`} alt="" />
+                            <img className="aspect-[3/2] w-full rounded-2xl object-cover" src={`build/images/${host.avatar}`} alt="" />
                             <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900">{host.first_name} {host.last_name}</h3>
                             {/* <p className="mt-4 text-base leading-7 text-gray-600">{host.bio}</p> */}
                         </li>
