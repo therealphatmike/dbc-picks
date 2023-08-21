@@ -62,11 +62,6 @@ class HostCrudController extends CrudController
          * Fields can be defined using the fluent syntax:
          * - CRUD::field('price')->type('number');
          */
-        CRUD::field('avatar')
-            ->type('upload')
-            ->withFiles([
-                'disk' => 'public', // the disk where file will be stored
-            ]);
     }
 
     /**
