@@ -6,4 +6,4 @@
 <x-backpack::menu-item title="Hosts" icon="la la-headphones" :link="backpack_url('host')" />
 <x-backpack::menu-item title="Picks" icon="la la-edit" :link="backpack_url('pick')" />
 <x-backpack::menu-item title="Races" icon="la la-flag" :link="backpack_url('race')" />
-<x-backpack::menu-item title="Tracks" icon="la la-question" :link="backpack_url('track')" />
+<x-backpack::menu-item title="Tracks" icon="la la-map-pin" :link="backpack_url('track')" />
