@@ -15,8 +15,8 @@ class WelcomeController extends Controller
         return Inertia::render('Welcome', [
             'standings' => $this->getStandings(),
             'picks' => Pick::with(['driver', 'host', 'race' => function ($query) {
-                $query->orderBy('date', 'DESC');
-            }])->limit(16)->get(),
+                $query->orderBy('date', 'asc');
+            }])->limit(16)->get()->reverse()->flatten(),
             'hosts' => Host::all(),
         ]);
     }
