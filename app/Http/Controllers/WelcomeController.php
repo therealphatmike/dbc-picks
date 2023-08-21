@@ -14,7 +14,7 @@ class WelcomeController extends Controller
         Log::info("WelcomeController->index()");
         return Inertia::render('Welcome', [
             'standings' => $this->getStandings(),
-            'picks' => Pick::with(['driver', 'host', 'race' => function($query) {
+            'picks' => Pick::with(['driver', 'host', 'race' => function ($query) {
                 $query->orderBy('date', 'DESC');
             }])->limit(16)->get(),
             'hosts' => Host::all(),
@@ -27,18 +27,18 @@ class WelcomeController extends Controller
 
         $hostsWithPicks = Host::with('picks')->get();
 
-        foreach($hostsWithPicks as $hwp) {
+        foreach ($hostsWithPicks as $hwp) {
             $hwp['points'] = $hwp->picks->sum('points');
             $hwp['wins'] = 0;
 
-            foreach($hwp->picks as $p) {
+            foreach ($hwp->picks as $p) {
                 if ($p->place === 1) $hwp['wins'] += 1;
             }
         }
 
         return $hostsWithPicks->sortBy([
-                ['wins', 'desc'],
-                ['points', 'desc'],
-            ]);
+            ['wins', 'desc'],
+            ['points', 'desc'],
+        ])->flatten();
     }
 }
