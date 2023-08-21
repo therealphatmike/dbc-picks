@@ -26,7 +26,7 @@ export default function Welcome({ auth, picks, hosts, standings }: PageProps<{ p
                 <div id="standings">
                     <Standings standings={standings.sort((a, b) => {
                         if (a && a.wins && a.points && b && b.wins && b.points) {
-                            return b.points - a.points || b.wins - a.wins
+                            return a.points - b.points || a.wins - b.wins
                         }
                         return 0;
                     })} />
