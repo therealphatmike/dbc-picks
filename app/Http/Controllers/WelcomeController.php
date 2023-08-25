@@ -25,6 +25,7 @@ class WelcomeController extends Controller
                 ->limit(4)
                 ->get(),
             'picks' => Pick::with(['driver', 'host', 'race'])
+                ->limit(12)
                 ->get()
                 ->sortByDesc('race.date')
                 ->flatten(),
