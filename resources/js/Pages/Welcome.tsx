@@ -7,21 +7,12 @@ import Hosts from '@/Components/Hosts';
 import CurrentPicks from '@/Components/CurrentPicks';
 import Standings from '@/Components/Standings';
 
-function getDate() {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0')
-    var mm = String(today.getMonth() + 1).padStart(2, '0')
-    var yyyy = today.getFullYear()
-
-    return yyyy + '-' + mm + '-' + dd
-}
-
-export default function Welcome({ auth, picks, hosts, standings }: PageProps<{ picks: Pick[], hosts: Host[], standings: Host[] }>) {
+export default function Welcome({ auth, picks, currentPicks, hosts, standings }: PageProps<{ picks: Pick[], currentPicks: Pick[], hosts: Host[], standings: Host[] }>) {
     return picks && (
         <Guest>
             <div className="space-y-12">
                 <div id="current_picks">
-                    <CurrentPicks picks={picks.filter(pick => new Date(pick?.race?.date) >= new Date(getDate()))} />
+                    <CurrentPicks picks={currentPicks} />
                 </div>
                 <div id="standings">
                     <Standings standings={standings} />

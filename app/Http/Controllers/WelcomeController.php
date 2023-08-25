@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Host;
 use App\Models\Pick;
+use Carbon\Carbon;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
@@ -15,8 +17,14 @@ class WelcomeController extends Controller
 
         return Inertia::render('Welcome', [
             'standings' => $this->getStandings(),
+            'currentPicks' => Pick::with(['driver', 'host', 'race'])
+                ->join('races', function (JoinClause $join) {
+                    $join->on('races.id', '=', 'picks.race_id')
+                        ->where('races.date', '>=', Carbon::now()->subDays(1));
+                })
+                ->limit(4)
+                ->get(),
             'picks' => Pick::with(['driver', 'host', 'race'])
-                ->limit(16)
                 ->get()
                 ->sortByDesc('race.date')
                 ->flatten(),

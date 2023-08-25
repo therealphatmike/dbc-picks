@@ -30,7 +30,7 @@ export default function PickTable({ picks }: { picks: Pick[] }) {
                                 </thead>
                                 <tbody className="divide-y divide-dbc-teal/50 bg-white">
                                     {picks.map((pick) => (
-                                        <tr key={pick.id} className="transition ease-in-out hover:bg-dbc-teal/25">
+                                        <tr key={`picks-${pick.id}`} className="transition ease-in-out hover:bg-dbc-teal/25">
                                             <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-dbc-blue sm:pl-6">
                                                 {pick.host.first_name}
                                             </td>

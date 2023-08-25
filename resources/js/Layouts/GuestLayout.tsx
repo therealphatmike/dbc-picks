@@ -79,8 +79,8 @@ export default function Guest({ children }: PropsWithChildren) {
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12 ">
                         {navigation.map((item) => (
-                            <div>
-                                <a key={`header-${item.name}`} href={item.href} className="text-base font-semibold leading-6 text-dbc-blue hover:text-dbc-teal">
+                            <div key={`header-${item.name}`}>
+                                <a href={item.href} className="text-base font-semibold leading-6 text-dbc-blue hover:text-dbc-teal">
                                     {item.name}
                                 </a>
                             </div>
