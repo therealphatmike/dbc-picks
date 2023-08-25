@@ -12,7 +12,7 @@ export default function PickTable({ picks }: { picks: Pick[] }) {
             <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
                     <h2 className="text-xl font-semibold leading-6 text-dbc-blue">Picks</h2>
-                    <p className="text-sm text-dbc-blue">This table shows the last 4 races of picks. A more detailed view will be implemented in the future.</p>
+                    <p className="text-sm text-dbc-blue">This table shows the last 3 races of picks. A searchable and filterable view will be implemented in the future.</p>
                 </div>
             </div>
             <div className="mt-4 flow-root">
