@@ -14,7 +14,7 @@ export default function CurrentPicks({ picks }: { picks: Pick[] }) {
             <div className="mt-4 divide-y divide-dbc-teal bg-dbc-teal overflow-hidden rounded-lg shadow shadow-dbc-teal/50 sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
                 {picks.map((pick, pickIdx) => (
                     <div
-                        key={`current-${pick.id}`}
+                        key={`current-${pick.id}-${pickIdx}`}
                         className={classNames(
                             pickIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '',
                             pickIdx === 1 ? 'sm:rounded-tr-lg' : '',

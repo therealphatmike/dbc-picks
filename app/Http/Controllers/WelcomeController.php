@@ -28,6 +28,7 @@ class WelcomeController extends Controller
                 ->limit(12)
                 ->get()
                 ->sortByDesc('race.date')
+                ->groupBy('race.name')
                 ->flatten(),
             'hosts' => Host::all(),
         ]);

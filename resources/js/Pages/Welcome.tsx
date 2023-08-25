@@ -7,7 +7,7 @@ import Hosts from '@/Components/Hosts';
 import CurrentPicks from '@/Components/CurrentPicks';
 import Standings from '@/Components/Standings';
 
-export default function Welcome({ auth, picks, currentPicks, hosts, standings }: PageProps<{ picks: Pick[], currentPicks: Pick[], hosts: Host[], standings: Host[] }>) {
+export default function Welcome({ auth, picks, currentPicks, hosts, standings }: PageProps<{ picks: any, currentPicks: Pick[], hosts: Host[], standings: Host[] }>) {
     return picks && (
         <Guest>
             <div className="space-y-12">
