@@ -101,7 +101,7 @@ export default function Guest({ children }: PropsWithChildren) {
                                 <span className="sr-only">DBC Picks</span>
                                 <img
                                     className="h-8 w-auto"
-                                    src="build/images/picks.jpeg"
+                                    src="build/images/dbc_picks.jpeg"
                                     alt=""
                                 />
                             </a>
