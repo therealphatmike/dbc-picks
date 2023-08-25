@@ -7,10 +7,10 @@ function classNames(...classes: any[]) {
 export default function CurrentPicks({ picks }: { picks: Pick[] }) {
     return picks.length > 0 && (
         <>
-            <h2 className="text-xl font-semibold leading-6 text-gray-900">
+            <h2 className="text-xl font-semibold leading-6 text-dbc-blue">
                 Current Picks
             </h2>
-            <p className="text-sm text-gray-900">Picks for the upcoming race. Updated each week after the podcast is released.</p>
+            <p className="text-sm text-dbc-blue">Picks for the upcoming race. Updated each week after the podcast is released.</p>
             <div className="mt-4 divide-y divide-dbc-teal bg-dbc-teal overflow-hidden rounded-lg shadow shadow-dbc-teal/50 sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
                 {picks.map((pick, pickIdx) => (
                     <div

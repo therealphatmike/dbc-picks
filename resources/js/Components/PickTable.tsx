@@ -6,8 +6,8 @@ export default function PickTable({ picks }: { picks: Pick[] }) {
         <>
             <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
-                    <h2 className="text-xl font-semibold leading-6 text-gray-900">Picks</h2>
-                    <p className="text-sm text-gray-900">This table shows the last 4 races of picks. A more detailed view will be implemented in the future.</p>
+                    <h2 className="text-xl font-semibold leading-6 text-dbc-blue">Picks</h2>
+                    <p className="text-sm text-dbc-blue">This table shows the last 4 races of picks. A more detailed view will be implemented in the future.</p>
                 </div>
             </div>
             <div className="mt-4 flow-root">
@@ -17,13 +17,13 @@ export default function PickTable({ picks }: { picks: Pick[] }) {
                             <table className="min-w-full divide-y divide-dbc-teal/75">
                                 <thead className="bg-dbc-teal/50">
                                     <tr>
-                                        <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                                        <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-dbc-blue sm:pl-6">
                                             Host
                                         </th>
-                                        <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                        <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-dbc-blue">
                                             Race
                                         </th>
-                                        <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                        <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-dbc-blue">
                                             Driver
                                         </th>
                                     </tr>
@@ -31,7 +31,7 @@ export default function PickTable({ picks }: { picks: Pick[] }) {
                                 <tbody className="divide-y divide-dbc-teal/50 bg-white">
                                     {picks.map((pick) => (
                                         <tr key={pick.id} className="transition ease-in-out hover:bg-dbc-teal/25">
-                                            <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                                            <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-dbc-blue sm:pl-6">
                                                 {pick.host.first_name}
                                             </td>
                                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{pick.race.name}</td>

@@ -18,6 +18,7 @@ export default {
             colors: {
                 'dbc-teal': '#6eb6bb',
                 'dbc-orange': '#fe5b4a',
+                'dbc-blue': '#012a3a',
             },
         },
     },

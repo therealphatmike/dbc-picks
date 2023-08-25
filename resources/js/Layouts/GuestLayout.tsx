@@ -80,7 +80,7 @@ export default function Guest({ children }: PropsWithChildren) {
                     <div className="hidden lg:flex lg:gap-x-12 ">
                         {navigation.map((item) => (
                             <div>
-                                <a key={`header-${item.name}`} href={item.href} className="text-base font-semibold leading-6 text-gray-900 hover:text-dbc-teal">
+                                <a key={`header-${item.name}`} href={item.href} className="text-base font-semibold leading-6 text-dbc-blue hover:text-dbc-teal">
                                     {item.name}
                                 </a>
                             </div>
@@ -121,7 +121,7 @@ export default function Guest({ children }: PropsWithChildren) {
                                         <a
                                             key={`mobile-header-${item.name}`}
                                             href={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dbc-blue hover:bg-gray-50"
                                         >
                                             {item.name}
                                         </a>
@@ -142,10 +142,10 @@ export default function Guest({ children }: PropsWithChildren) {
 
             <footer className="bg-white">
                 <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
-                    <nav className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
+                    <nav className="-mb-6 columns-1 text-center sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
                         {navigation.map((item) => (
                             <div key={`footer-nav-${item.name}`} className="pb-6">
-                                <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                                <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-dbc-blue">
                                     {item.name}
                                 </a>
                             </div>

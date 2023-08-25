@@ -5,8 +5,8 @@ export default function Standings({ standings }: { standings: Host[] }) {
         <>
             <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
-                    <h1 className="text-xl font-semibold leading-6 text-gray-900">Standings</h1>
-                    <p className="text-sm text-gray-900">
+                    <h1 className="text-xl font-semibold leading-6 text-dbc-blue">Standings</h1>
+                    <p className="text-sm text-dbc-blue">
                         DBC does not track points, only wins. Points are my own system.
                         I added points to find a fun alternative way to view consistency among picks instead of just outright wins.
                         A win gets 10 points, 2nd place gets 8 points, 3rd place gets 4 points, and last gets 0 points.
@@ -28,7 +28,7 @@ export default function Standings({ standings }: { standings: Host[] }) {
                         <div className="min-w-0 flex-1">
                             <a href="#" className="focus:outline-none">
                                 <span className="absolute inset-0" aria-hidden="true" />
-                                <p className="text-sm font-medium text-gray-900">{host.first_name} {host.last_name}</p>
+                                <p className="text-sm font-medium text-dbc-blue">{host.first_name} {host.last_name}</p>
                                 <p className="truncate text-sm text-gray-700">wins: {host.wins}</p>
                                 <p className="truncate text-sm text-gray-700">points: {host.points}</p>
                             </a>
