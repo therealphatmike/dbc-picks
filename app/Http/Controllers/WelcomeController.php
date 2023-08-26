@@ -25,11 +25,13 @@ class WelcomeController extends Controller
                 ->limit(4)
                 ->get(),
             'picks' => Pick::with(['driver', 'host', 'race'])
-                ->limit(12)
-                ->get()
-                ->sortByDesc('race.date')
-                ->groupBy('race.name')
-                ->flatten(),
+                ->join('races', function (JoinClause $join) {
+                    $join->on('races.id', '=', 'picks.race_id');
+                })
+                ->orderBy('races.date', 'desc')
+                ->paginate(12)
+                ->fragment('picks')
+                ->onEachSide(1),
             'hosts' => Host::all(),
         ]);
     }

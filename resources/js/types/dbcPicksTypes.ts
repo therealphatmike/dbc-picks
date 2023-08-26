@@ -39,5 +39,26 @@ export type Pick = {
     host: Host
     driver: Driver
     race: Race
-    regular_season: boolean
+    place?: number
+}
+
+export type PaginatedPicksResult = {
+    current_page: number
+    data: Pick[]
+    total: number
+    from: number
+    to: number
+    first_page_url: string
+    last_page_url: string
+    prev_page_url: string
+    next_page_url: string
+    per_page: number
+    last_page: number
+    links: Link[]
+}
+
+type Link = {
+    url: string
+    label: string
+    active: boolean
 }
