@@ -5,7 +5,7 @@ export default function Hosts({ hosts }: { hosts: Host[] }) {
     return (
         <div className="bg-white py-24">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-1">
-                <div className="mx-auto max-w-2xl lg:mx-0 xs:px-0 lg:flex lg:d-inline items-center">
+                <div className="mx-auto max-w-2xl lg:mx-0 xs:px-0 lg:flex lg:d-inline items-center justify-self-center">
                     <img src="build/images/dbc_logo_big.jpeg" className="w-96"></img>
                     <h2 className="ml-2 text-3xl font-bold tracking-tight text-dbc-blue sm:text-4xl text-center">is...</h2>
                 </div>
