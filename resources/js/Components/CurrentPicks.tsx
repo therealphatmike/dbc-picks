@@ -30,10 +30,10 @@ export default function CurrentPicks({ picks }: { picks: Pick[] }) {
               {pick.host.first_name} {pick.host.last_name}
             </div>
             <div className="mt-6">
-              <p className="mt-2 text-sm text-gray-500">
+              <p className="mt-2 text-sm text-dbc-blue/75">
                 Driver: {pick.driver.nickname || pick.driver.first_name} {pick.driver.last_name}
               </p>
-              <p className="mt-2 text-sm text-gray-500">
+              <p className="mt-2 text-sm text-dbc-blue/75">
                 Race: {pick.race.name}
               </p>
             </div>
