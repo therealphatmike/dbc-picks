@@ -32,7 +32,7 @@ export default function Standings({ standings }: { standings: Host[] }) {
                 <div className="md:hidden grid grid-flow-row grid-rows-3">
                   <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">wins:</span> {host.wins}</p>
                   <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">points:</span> {host.points}</p>
-                  <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">avg pick place:</span> {host.average_pick_place}</p>
+                  <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">host average place:</span> {host.average_pick_place}</p>
                 </div>
                 <div className="hidden md:grid md:grid-cols-2">
                   <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">wins:</span> {host.wins}</p>
