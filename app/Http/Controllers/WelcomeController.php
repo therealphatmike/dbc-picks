@@ -28,7 +28,7 @@ class WelcomeController extends Controller
                 ->join('races', function (JoinClause $join) {
                     $join->on('races.id', '=', 'picks.race_id');
                 })
-                ->orderBy('races.date', 'desc')
+                ->orderByDesc('races.date')
                 ->paginate(12)
                 ->fragment('picks')
                 ->onEachSide(1),
