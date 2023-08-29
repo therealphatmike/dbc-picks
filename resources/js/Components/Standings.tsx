@@ -29,8 +29,16 @@ export default function Standings({ standings }: { standings: Host[] }) {
               <a href="#" className="focus:outline-none">
                 <span className="absolute inset-0" aria-hidden="true" />
                 <p className="text-sm font-medium text-dbc-blue">{host.first_name} {host.last_name}</p>
-                <p className="truncate text-sm text-gray-700">wins: {host.wins}</p>
-                <p className="truncate text-sm text-gray-700">points: {host.points}</p>
+                <div className="md:hidden grid grid-flow-row grid-rows-3">
+                  <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">wins:</span> {host.wins}</p>
+                  <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">points:</span> {host.points}</p>
+                  <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">avg pick place:</span> {host.average_pick_place}</p>
+                </div>
+                <div className="hidden md:grid md:grid-cols-2">
+                  <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">wins:</span> {host.wins}</p>
+                  <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">avg pick place:</span> {host.average_pick_place}</p>
+                  <p className="truncate text-sm text-dbc-blue/75"><span className="text-dbc-blue/50">points:</span> {host.points}</p>
+                </div>
               </a>
             </div>
           </div>

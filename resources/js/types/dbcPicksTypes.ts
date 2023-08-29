@@ -5,6 +5,7 @@ export type Host = {
   avatar: string
   points?: number
   wins?: number
+  average_pick_place?: number
 }
 
 export type Driver = {
