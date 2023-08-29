@@ -45,7 +45,7 @@ class WelcomeController extends Controller
 
         foreach ($hostsWithPicks as $hwp) {
             $hwp['points'] = $hwp->picks->sum('points');
-            $hwp['average_pick_place'] = number_format(($hwp->picks->sum('place') / count($hwp->picks)), 2, '.', '');
+            $hwp['average_pick_place'] = $hwp->picks->average('place');
             $hwp['wins'] = 0;
 
             foreach ($hwp->picks as $p) {
