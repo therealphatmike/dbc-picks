@@ -34,6 +34,7 @@ export default function HostStats({
     responsive: true,
     plugins: {
       legend: {
+        display: false,
         position: 'top' as const,
       },
       title: {
@@ -83,7 +84,7 @@ export default function HostStats({
                 backgroundColor: '#fe5b4a',
               }]
             }}
-            height={50}
+            height={100}
           />
         </div>
 
