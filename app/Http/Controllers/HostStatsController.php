@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Host;
 use App\Models\Pick;
+use Carbon\Carbon;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
@@ -24,7 +26,7 @@ class HostStatsController extends Controller
         foreach ($host->picks as $p) {
             if ($p->place === 1) $stats['wins'] += 1;
         }
-        // dd(json_encode($host));
+
         return Inertia::render('HostStats', [
             'host' => $host,
             'hostStats' => $stats,
@@ -36,7 +38,14 @@ class HostStatsController extends Controller
                 ->orderByDesc('races.date')
                 ->paginate(12)
                 ->onEachSide(1),
-            'weeklyCumulativePosition' => [1, 2, 2, 1, 2, 4, 3, 3, 3, 3, 2, 2, 2, 1, 1, 1, 2, 1, 2, 2, 2]
+            'rollingAveragePosition' => Pick::with('race')
+                ->where('host_id', '=', $host->id)
+                ->get()
+                ->pluck('place')
+                ->rollingAverage($lookback = 4),
+            'pickPlaces' => Pick::where('host_id', '=', $host->id)
+                ->get()
+                ->pluck('place'),
         ]);
     }
 }

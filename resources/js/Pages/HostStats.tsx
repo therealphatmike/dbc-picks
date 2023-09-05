@@ -3,6 +3,8 @@ import Guest from "@/Layouts/GuestLayout";
 import { PageProps } from "@/types";
 import { Host, PaginatedPicksResult } from "@/types/dbcPicksTypes";
 import {
+  BarElement,
+  BarController,
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
@@ -12,15 +14,19 @@ import {
   Tooltip,
   Legend
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Chart } from "react-chartjs-2";
 
 export default function HostStats({
   host,
   hostStats,
   hostPicks,
-  weeklyCumulativePosition
-}: PageProps<{ host: Host, hostStats: any, hostPicks: PaginatedPicksResult, weeklyCumulativePosition: number[] }>) {
-  ChartJS.register(CategoryScale,
+  rollingAveragePosition,
+  pickPlaces,
+}: PageProps<{ host: Host, hostStats: any, hostPicks: PaginatedPicksResult, rollingAveragePosition: number[], pickPlaces: number[] }>) {
+  ChartJS.register(
+    BarController,
+    BarElement,
+    CategoryScale,
     LinearScale,
     PointElement,
     LineElement,
@@ -28,29 +34,6 @@ export default function HostStats({
     Tooltip,
     Legend
   );
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false,
-        position: 'top' as const,
-      },
-      title: {
-        display: false,
-      },
-    },
-    scales: {
-      y: {
-        min: 1,
-        max: 4,
-        reverse: true,
-        ticks: {
-          stepSize: 1,
-        },
-      },
-    },
-  };
 
   return (
     <Guest>
@@ -70,22 +53,55 @@ export default function HostStats({
           ))}
         </dl>
 
-        <div className="mt-8">
-          <h3 className="text-dbc-blue text-xl font-semibold">Weekly Cumulative Position</h3>
-          <Line
-            options={options}
-            data={{
-              labels: weeklyCumulativePosition.map((wcp, idx) => idx),
-              datasets: [{
-                label: `${host.first_name} ${host.last_name}`,
-                data: weeklyCumulativePosition,
-                borderColor: '#fe5b4a',
-                backgroundColor: '#fe5b4a',
-              }]
-            }}
-            height={100}
-          />
-        </div>
+          <div className="mt-8 overflow-x-auto">
+            <h3 className="text-dbc-blue text-xl font-semibold">Weekly Pick Place vs 4 Week Rolling Average</h3>
+            <Chart
+              type="bar"
+              options={{
+                responsive: true,
+                plugins: {
+                  legend: {
+                    display: true,
+                    position: 'top' as const,
+                  },
+                  title: {
+                    display: false,
+                  },
+                },
+                scales: {
+                  y: {
+                    min: 1,
+                    max: 4,
+                    reverse: true,
+                    ticks: {
+                      stepSize: 1,
+                    },
+                  },
+                  x: {
+                    min: 0,
+                    max: 35,
+                  }
+                },
+              }}
+              data={{
+                labels: rollingAveragePosition.map((wcp, idx) => idx),
+                datasets: [{
+                  type: 'line' as const,
+                  label: '4 week rolling average',
+                  data: rollingAveragePosition,
+                  borderColor: '#fe5b4a',
+                  backgroundColor: '#fe5b4a',
+                }, {
+                  type: 'bar' as const,
+                  label: 'weekly position',
+                  data: pickPlaces,
+                  borderColor: 'rgba(110, 182, 187, 0.5)',
+                  backgroundColor: 'rgba(110, 182, 187, 0.5)',
+                }]
+              }}
+              height={100}
+            />
+          </div>
 
         <HostPicks picks={hostPicks} />
       </div>

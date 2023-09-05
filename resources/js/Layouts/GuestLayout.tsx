@@ -4,10 +4,10 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Current Picks', href: '#current_picks' },
-  { name: 'Standings', href: '#standings' },
-  { name: 'Picks', href: '#picks' },
-  { name: 'Hosts', href: '#hosts' },
+  { name: 'Current Picks', href: '/#current_picks' },
+  { name: 'Standings', href: '/#standings' },
+  { name: 'Picks', href: '/#picks' },
+  { name: 'Hosts', href: '/#hosts' },
 ]
 
 const socials = [
