@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HostStatsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Foundation\Application;
@@ -18,6 +19,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [WelcomeController::class, 'index']);
+Route::get('/hosts/{host}', [HostStatsController::class, 'getHostStats'])->name('hostStats');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

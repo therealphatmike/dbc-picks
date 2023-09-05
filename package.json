@@ -26,6 +26,8 @@
         "vite-plugin-static-copy": "^0.17.0"
     },
     "dependencies": {
-        "@heroicons/react": "^2.0.18"
+        "@heroicons/react": "^2.0.18",
+        "chart.js": "^4.4.0",
+        "react-chartjs-2": "^5.2.0"
     }
 }

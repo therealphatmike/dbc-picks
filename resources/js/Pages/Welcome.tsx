@@ -9,7 +9,7 @@ import Standings from '@/Components/Standings';
 
 export default function Welcome({ auth, picks, currentPicks, hosts, standings }: PageProps<{ picks: PaginatedPicksResult, currentPicks: Pick[], hosts: Host[], standings: Host[] }>) {
   return picks && (
-    <Guest>
+    <Guest hosts={hosts}>
       <div className="space-y-12">
         <div id="current_picks">
           <CurrentPicks picks={currentPicks} />

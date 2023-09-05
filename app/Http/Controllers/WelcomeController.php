@@ -33,7 +33,7 @@ class WelcomeController extends Controller
                 ->paginate(12)
                 ->fragment('picks')
                 ->onEachSide(1),
-            'hosts' => Host::all(),
+            'hosts' => Host::orderBy('first_name')->get(),
         ]);
     }
 
