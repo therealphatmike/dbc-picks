@@ -21,6 +21,7 @@ class Pick extends Model
         'driver_id',
         'place',
         'points',
+        'driver_finish_position',
     ];
 
     public function race(): BelongsTo

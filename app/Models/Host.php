@@ -24,4 +24,9 @@ class Host extends Model
     {
         return $this->hasMany(Pick::class);
     }
+
+    public function stats(): HasMany
+    {
+        return $this->hasMany(HostStats::class);
+    }
 }

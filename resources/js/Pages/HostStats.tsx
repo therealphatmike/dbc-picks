@@ -1,5 +1,4 @@
 import HostPicks from "@/Components/HostPicks";
-import PickTable from "@/Components/PickTable";
 import Guest from "@/Layouts/GuestLayout";
 import { PageProps } from "@/types";
 import { Host, PaginatedPicksResult } from "@/types/dbcPicksTypes";
