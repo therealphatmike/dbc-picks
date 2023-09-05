@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Host;
 use App\Models\Pick;
-use Carbon\Carbon;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
@@ -28,6 +26,7 @@ class HostStatsController extends Controller
         }
 
         return Inertia::render('HostStats', [
+            'hosts' => Host::orderBy('first_name')->get(),
             'host' => $host,
             'hostStats' => $stats,
             'hostPicks' => Pick::with(['driver', 'host', 'race'])

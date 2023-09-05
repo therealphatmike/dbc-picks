@@ -17,12 +17,13 @@ import {
 import { Chart } from "react-chartjs-2";
 
 export default function HostStats({
+  hosts,
   host,
   hostStats,
   hostPicks,
   rollingAveragePosition,
   pickPlaces,
-}: PageProps<{ host: Host, hostStats: any, hostPicks: PaginatedPicksResult, rollingAveragePosition: number[], pickPlaces: number[] }>) {
+}: PageProps<{ hosts: Host[], host: Host, hostStats: any, hostPicks: PaginatedPicksResult, rollingAveragePosition: number[], pickPlaces: number[] }>) {
   ChartJS.register(
     BarController,
     BarElement,
@@ -36,7 +37,7 @@ export default function HostStats({
   );
 
   return (
-    <Guest>
+    <Guest hosts={hosts}>
       <div>
         <div className="flex items-center">
           <div className="flex-shrink-0">
@@ -72,7 +73,6 @@ export default function HostStats({
                   y: {
                     min: 1,
                     max: 4,
-                    reverse: true,
                     ticks: {
                       stepSize: 1,
                     },
