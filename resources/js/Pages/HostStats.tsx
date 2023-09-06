@@ -1,7 +1,7 @@
 import HostPicks from "@/Components/HostPicks";
 import Guest from "@/Layouts/GuestLayout";
 import { PageProps } from "@/types";
-import { Host, PaginatedPicksResult } from "@/types/dbcPicksTypes";
+import { Host, PaginatedPicksResult, Pick } from "@/types/dbcPicksTypes";
 import {
   BarElement,
   BarController,
@@ -24,7 +24,7 @@ export default function HostStats({
   hostPicks,
   rollingAveragePosition,
   pickPlaces,
-}: PageProps<{ hosts: Host[], host: Host, hostStats: any, hostPicks: PaginatedPicksResult, rollingAveragePosition: number[], pickPlaces: number[] }>) {
+}: PageProps<{ hosts: Host[], host: Host, hostStats: any, hostPicks: PaginatedPicksResult, rollingAveragePosition: number[], pickPlaces: Pick[] }>) {
   ChartJS.register(
     BarController,
     BarElement,
@@ -82,11 +82,14 @@ export default function HostStats({
                   x: {
                     min: 0,
                     max: 35,
+                    ticks: {
+                      display: false
+                    }
                   }
                 },
               }}
               data={{
-                labels: rollingAveragePosition.map((wcp, idx) => idx),
+                labels: pickPlaces.map((pick: Pick) => pick.race.name),
                 datasets: [{
                   type: 'line' as const,
                   label: '4 week rolling average',
@@ -96,7 +99,7 @@ export default function HostStats({
                 }, {
                   type: 'bar' as const,
                   label: 'weekly position',
-                  data: pickPlaces,
+                  data: pickPlaces.map(pick => pick.place),
                   borderColor: 'rgba(110, 182, 187, 0.5)',
                   backgroundColor: 'rgba(110, 182, 187, 0.5)',
                 }]

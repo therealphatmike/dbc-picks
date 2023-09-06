@@ -43,8 +43,14 @@ class HostStatsController extends Controller
                 ->pluck('place')
                 ->rollingAverage($lookback = 4),
             'pickPlaces' => Pick::where('host_id', '=', $host->id)
+                ->with('race')
+                ->join('races', function (JoinClause $join) {
+                    $join->on('races.id', '=', 'picks.race_id');
+                })
+                ->orderByDesc('races.date')
                 ->get()
-                ->pluck('place'),
+                ->skip(1)
+                ->flatten(),
         ]);
     }
 }
