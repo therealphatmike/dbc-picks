@@ -1,5 +1,5 @@
 import { Link, Head } from '@inertiajs/react';
-import { PaginatedPicksResult, Pick } from '@/types/dbcPicksTypes';
+import { PaginatedPicksResult } from '@/types/dbcPicksTypes';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 export default function HostPicks({ picks }: { picks: PaginatedPicksResult }) {
