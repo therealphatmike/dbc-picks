@@ -49,7 +49,7 @@ class HostStatsController extends Controller
                 })
                 ->orderBy('races.date')
                 ->get()
-                ->skip(1)
+                ->slice(0, -1)
                 ->flatten(),
         ]);
     }
