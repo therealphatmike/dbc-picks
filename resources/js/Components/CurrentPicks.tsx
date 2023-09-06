@@ -24,7 +24,7 @@ export default function CurrentPicks({ picks }: { picks: Pick[] }) {
             )}
           >
             <div className="flex-shrink-0">
-              <img className="h-10 w-10 rounded-full float-left mr-4" src={`build/images/${pick.host.avatar}`} alt="" />
+              <img className="h-10 w-10 rounded-full float-left mr-4" src={`/build/images/${pick.host.avatar}`} alt="" />
             </div>
             <div className="align-content-bottom">
               {pick.host.first_name} {pick.host.last_name}

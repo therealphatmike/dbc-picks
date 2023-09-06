@@ -24,7 +24,7 @@ export default function Guest({ hosts, children }: { hosts: Host[], children: Re
           <div className="flex flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">DBC Picks</span>
-              <img className="h-12 w-auto" src="build/images/dbc_picks.jpeg" alt="" />
+              <img className="h-12 w-auto" src="/build/images/dbc_picks.jpeg" alt="" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -99,7 +99,7 @@ export default function Guest({ hosts, children }: { hosts: Host[], children: Re
               <div>
                 <a href="#" className="-m-1.5 p-1.5">
                   <span className="sr-only">DBC Picks</span>
-                  <img className="h-12 w-auto" src="build/images/dbc_picks.jpeg" alt="" />
+                  <img className="h-12 w-auto" src="/build/images/dbc_picks.jpeg" alt="" />
                 </a>
               </div>
               <button
