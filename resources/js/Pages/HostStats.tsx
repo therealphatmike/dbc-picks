@@ -12,7 +12,8 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  LineController
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 
@@ -31,6 +32,7 @@ export default function HostStats({
     LinearScale,
     PointElement,
     LineElement,
+    LineController,
     Title,
     Tooltip,
     Legend
