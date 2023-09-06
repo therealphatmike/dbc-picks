@@ -40,7 +40,7 @@ export default function HostPicks({ picks }: { picks: PaginatedPicksResult }) {
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{pick.driver.nickname || pick.driver.first_name} {pick.driver.last_name} {pick.driver.suffix || ''}</td>
                       {/* <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{pick.driver.result}</td> */}
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{pick.place}</td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{pick.place || 'TBD'}</td>
                     </tr>
                   ))}
                 </tbody>
