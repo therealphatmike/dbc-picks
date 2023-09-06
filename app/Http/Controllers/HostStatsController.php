@@ -47,7 +47,7 @@ class HostStatsController extends Controller
                 ->join('races', function (JoinClause $join) {
                     $join->on('races.id', '=', 'picks.race_id');
                 })
-                ->orderByDesc('races.date')
+                ->orderBy('races.date')
                 ->get()
                 ->skip(1)
                 ->flatten(),
