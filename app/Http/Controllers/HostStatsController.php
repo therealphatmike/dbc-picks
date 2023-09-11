@@ -49,6 +49,7 @@ class HostStatsController extends Controller
                 })
                 ->orderBy('races.date')
                 ->get()
+                // remove the last item (current pick with TBD result)
                 ->slice(0, -1)
                 ->flatten(),
         ]);

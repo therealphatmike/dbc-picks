@@ -22,6 +22,7 @@ class WelcomeController extends Controller
                     $join->on('races.id', '=', 'picks.race_id')
                         ->where('races.date', '>=', Carbon::now()->subDays(1));
                 })
+                ->orderByDesc('races.date')
                 ->limit(4)
                 ->get(),
             'picks' => Pick::with(['driver', 'host', 'race'])
