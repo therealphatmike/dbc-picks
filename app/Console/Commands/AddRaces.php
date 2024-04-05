@@ -45,7 +45,7 @@ class AddRaces extends Command
         });
 
         $this->info("Requesting data from SportRadar");
-        $response = response()->guzzlePassthrough(Http::nascar()->get("/{$year}/races/schedule.json?api_key=g3n7xgb2zn95epqp6vzcvzjc"));
+        $response = response()->guzzlePassthrough(Http::nascar()->get("/{$year}/races/schedule.json?api_key=1hXHbDqrLt9YjPCJa056rabmVeyNJ3ZEPBSmUdIb"));
         $events = json_decode($response->original)->events;
 
         foreach($events as $event) {

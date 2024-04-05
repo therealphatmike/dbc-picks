@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\PickRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class PickCrudController
@@ -66,7 +68,19 @@ class PickCrudController extends CrudController
          * Fields can be defined using the fluent syntax:
          * - CRUD::field('price')->type('number');
          */
-        CRUD::field('race');
+        CRUD::field([
+            'label' => 'Race',
+            'type' => 'select',
+            'name' => 'race_id',
+            'entity' => 'race',
+            'model' => 'App\Models\Race',
+            'attribute' => 'displayName',
+            'options'   => (function ($query) {
+                return $query->orderBy('date', 'ASC')->get()->filter(function ($race) {
+                    return explode('-', $race->date)[0] === strval(Carbon::now()->year);
+                });
+            }),
+        ]);
         CRUD::field('host');
         CRUD::field([
             'label' => 'Driver',
