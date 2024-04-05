@@ -43,11 +43,13 @@ class AddDrivers extends Command
         });
 
         $this->info("Requesting data from SportRadar");
-        $response = response()->guzzlePassthrough(Http::nascar()->get("/{$year}/drivers/list.json?api_key=g3n7xgb2zn95epqp6vzcvzjc"));
+        $response = response()->guzzlePassthrough(Http::nascar()->get("/{$year}/drivers/list.json?api_key=1hXHbDqrLt9YjPCJa056rabmVeyNJ3ZEPBSmUdIb"));
         $drivers = json_decode($response->original)->drivers;
 
         foreach($drivers as $driver) {
             if (Driver::where('external_id', $driver->id)) {
+                $this->info("Dirver {$driver->full_name} already exists, skiping.");
+            } else {
                 $this->info("Driver {$driver->full_name} doesn't exist, adding to DB.");
                 Driver::create([
                     'first_name' => $driver->first_name,

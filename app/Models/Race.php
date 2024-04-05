@@ -28,4 +28,9 @@ class Race extends Model
     {
         return $this->belongsTo(Track::class);
     }
+
+    public function getDisplayNameAttribute(): string
+    {
+        return "{$this->name} - ({$this->date})";
+    }
 }
