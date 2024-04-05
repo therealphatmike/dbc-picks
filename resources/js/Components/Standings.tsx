@@ -10,6 +10,7 @@ export default function Standings({ standings }: { standings: Host[] }) {
             DBC does not track points, only wins. Points are my own system.
             I added points to find a fun alternative way to view consistency among picks instead of just outright wins.
             A win gets 10 points, 2nd place gets 8 points, 3rd place gets 4 points, and last gets 0 points.
+            The below table is for the current season only.
           </p>
         </div>
       </div>

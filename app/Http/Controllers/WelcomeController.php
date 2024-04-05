@@ -42,7 +42,14 @@ class WelcomeController extends Controller
     {
         Log::info("WelcomeController->getStandings()");
 
-        $hostsWithPicks = Host::with('picks')->get();
+        $hostsWithPicks = Host::with('picks')
+            ->get()
+            ->each(function (Host $host) {
+                $host->picks = $host->picks->filter(function ($pick) {
+                    $pick->load('race');
+                    return explode("-", $pick->race->date)[0] === strval(Carbon::now()->year);
+                });
+            });
 
         foreach ($hostsWithPicks as $hwp) {
             $hwp['points'] = $hwp->picks->sum('points');
