@@ -76,9 +76,7 @@ class PickCrudController extends CrudController
             'model' => 'App\Models\Race',
             'attribute' => 'displayName',
             'options'   => (function ($query) {
-                return $query->orderBy('date', 'ASC')->get()->filter(function ($race) {
-                    return explode('-', $race->date)[0] === strval(Carbon::now()->year);
-                });
+                return $query->orderBy('date', 'ASC')->get();
             }),
         ]);
         CRUD::field('host');
